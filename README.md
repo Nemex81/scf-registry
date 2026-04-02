@@ -60,7 +60,12 @@ Quando un utente esegue il tool `scf_install_package`, il motore:
 
 ## Pacchetti disponibili
 
-Nessun pacchetto disponibile al momento. I primi pacchetti `scf-pack-*` sono in sviluppo.
+| Pacchetto | Versione | Descrizione | Status |
+|---|---|---|---|
+| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `1.1.0` | Agenti, skill e istruzioni per lo sviluppo Python generale | `active` |
+
+> Il registro viene aggiornato automaticamente tramite il workflow `registry-sync-gateway.yml`
+> nel motore `spark-framework-engine` quando un pacchetto pubblica una nuova versione.
 
 ---
 

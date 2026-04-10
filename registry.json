@@ -1,13 +1,23 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-04-02T12:00:00Z",
+  "updated_at": "2026-04-10T12:00:00Z",
   "packages": [
+    {
+      "id": "scf-master-codecrafter",
+      "display_name": "SCF Master CodeCrafter",
+      "description": "Layer base prerequisito per tutti i plugin SCF linguaggio-specifici.",
+      "latest_version": "1.0.0",
+      "status": "stable",
+      "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
+      "engine_min_version": "1.5.0",
+      "tags": ["master", "orchestrator", "dispatcher", "base"]
+    },
     {
       "id": "scf-pycode-crafter",
       "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
-      "latest_version": "1.2.1",
+      "latest_version": "2.0.0",
       "description": "Pacchetto SCF per progetti Python — agenti, skill e instruction per Copilot Agent mode",
-      "engine_min_version": "1.3.0",
+      "engine_min_version": "1.5.0",
       "status": "active",
       "tags": ["python", "development", "copilot", "agenti"]
     }

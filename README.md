@@ -2,8 +2,9 @@
 
 Indice centralizzato dei pacchetti **SPARK Code Framework (SCF)**.
 
-Questo repository contiene `registry.json` — il catalogo di tutti i pacchetti SCF
-pubblici disponibili per l'installazione tramite il server MCP `spark-framework-engine`.
+Questo repository contiene `registry.json` — il catalogo dei pacchetti SCF
+pubblici disponibili per installazione e aggiornamento tramite il server MCP
+`spark-framework-engine`.
 
 ---
 
@@ -15,12 +16,16 @@ Il server MCP `spark-framework-engine` legge questo file via HTTP GET:
 https://raw.githubusercontent.com/Nemex81/scf-registry/main/registry.json
 ```
 
-Quando un utente esegue il tool `scf_install_package`, il motore:
+Quando un utente esegue `scf_install_package`, il motore:
 1. Scarica `registry.json` da questo repo
 2. Trova il pacchetto richiesto e il suo `repo_url`
 3. Scarica i file `.github/` dal repo del pacchetto
 4. Li copia nel workspace locale dell'utente
 5. Aggiorna `.github/.scf-manifest.json` con gli hash SHA-256
+
+Quando un utente esegue `scf_update_packages` o `scf_apply_updates`, il motore usa
+lo stesso registry per costruire un piano di update coerente con le dipendenze
+dichiarate nei `package-manifest.json` dei package installati.
 
 ---
 
@@ -32,13 +37,22 @@ Quando un utente esegue il tool `scf_install_package`, il motore:
   "updated_at": "2026-03-30T12:00:00Z",
   "packages": [
     {
-      "id": "scf-pack-gamedev",
-      "repo_url": "https://github.com/Nemex81/scf-pack-gamedev",
+      "id": "scf-master-codecrafter",
+      "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
       "latest_version": "1.0.0",
-      "description": "Pacchetto dominio per sviluppo videogiochi",
-      "engine_min_version": "1.0.0",
+      "description": "Layer base prerequisito per tutti i plugin SCF linguaggio-specifici.",
+      "engine_min_version": "1.5.0",
+      "status": "stable",
+      "tags": ["master", "orchestrator", "dispatcher", "base"]
+    },
+    {
+      "id": "scf-pycode-crafter",
+      "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
+      "latest_version": "2.0.0",
+      "description": "Pacchetto SCF per progetti Python specializzato e dipendente dal layer master",
+      "engine_min_version": "1.5.0",
       "status": "active",
-      "tags": ["gamedev", "pygame", "accessibilità"]
+      "tags": ["python", "development", "copilot", "agenti"]
     }
   ]
 }
@@ -49,11 +63,11 @@ Quando un utente esegue il tool `scf_install_package`, il motore:
 | Campo | Tipo | Obbligatorio | Descrizione |
 |---|---|---|---|
 | `id` | string | sì | Identificatore univoco del pacchetto |
-| `repo_url` | string | sì | URL GitHub del repo `scf-pack-*` |
+| `repo_url` | string | sì | URL GitHub del repository del pacchetto |
 | `latest_version` | string semver | sì | Versione più recente disponibile |
 | `description` | string | sì | Descrizione breve del dominio |
 | `engine_min_version` | string semver | sì | Versione minima del motore richiesta |
-| `status` | string | sì | `active` o `deprecated` |
+| `status` | string | sì | `active`, `stable` o `deprecated` |
 | `tags` | array string | no | Tag di categoria per ricerca |
 
 ---
@@ -62,17 +76,19 @@ Quando un utente esegue il tool `scf_install_package`, il motore:
 
 | Pacchetto | Versione | Descrizione | Status |
 |---|---|---|---|
-| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `1.1.0` | Agenti, skill e istruzioni per lo sviluppo Python generale | `active` |
+| [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `1.0.0` | Layer base prerequisito per tutti i plugin SCF linguaggio-specifici | `stable` |
+| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.0.0` | Plugin Python specializzato che richiede il layer master | `active` |
 
 > Il registro viene aggiornato automaticamente tramite il workflow `registry-sync-gateway.yml`
 > nel motore `spark-framework-engine` quando un pacchetto pubblica una nuova versione.
+> Il workflow aggiorna le versioni e valida lo schema del registry prima di aprire la PR.
 
 ---
 
 ## Aggiungere un pacchetto
 
 Per aggiungere un pacchetto al registry:
-1. Crea un repo `scf-pack-{dominio}` con la struttura `.github/` completa
+1. Crea un repo package con `package-manifest.json` coerente e struttura `.github/` completa
 2. Apri una PR su questo repo aggiungendo la voce in `packages[]` di `registry.json`
 3. Aggiorna `updated_at` con la data corrente in formato ISO 8601 UTC
 

@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "updated_at": "2026-04-10T12:00:00Z",
+  "schema_version": "2.0",
+  "updated_at": "2026-04-11T00:00:00Z",
   "packages": [
     {
       "id": "scf-master-codecrafter",

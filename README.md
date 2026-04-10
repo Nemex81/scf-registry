@@ -33,7 +33,7 @@ dichiarate nei `package-manifest.json` dei package installati.
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "updated_at": "2026-03-30T12:00:00Z",
   "packages": [
     {
@@ -78,6 +78,22 @@ dichiarate nei `package-manifest.json` dei package installati.
 |---|---|---|---|
 | [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `1.0.0` | Layer base prerequisito per tutti i plugin SCF linguaggio-specifici | `stable` |
 | [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.0.0` | Plugin Python specializzato che richiede il layer master | `active` |
+
+---
+
+## Schema Version
+
+Il campo `schema_version` di `registry.json` è indipendente dal campo `schema_version`
+presente nel file `.github/.scf-manifest.json` dei progetti consumer.
+Sono artefatti con strutture e cicli di vita distinti:
+
+| Artefatto | schema_version | Struttura | Scopo |
+|-----------|---------------|-----------|-------|
+| `registry.json` (questo repo) | `"2.0"` | `packages[]` | Catalogo pubblico dei package SCF disponibili |
+| `.github/.scf-manifest.json` (progetto consumer) | `"1.0"` | `installed_packages[]` | Tracking locale dei package installati nel progetto |
+
+I due numeri di versione **non sono confrontabili** e possono evolvere in modo indipendente.
+Un bump di `schema_version` in uno schema non implica un cambio nell'altro.
 
 > Il registro viene aggiornato automaticamente tramite il workflow `registry-sync-gateway.yml`
 > nel motore `spark-framework-engine` quando un pacchetto pubblica una nuova versione.

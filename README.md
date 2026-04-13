@@ -90,7 +90,7 @@ Sono artefatti con strutture e cicli di vita distinti:
 | Artefatto | schema_version | Struttura | Scopo |
 |-----------|---------------|-----------|-------|
 | `registry.json` (questo repo) | `"2.0"` | `packages[]` | Catalogo pubblico dei package SCF disponibili |
-| `.github/.scf-manifest.json` (progetto consumer) | `"1.0"` | `installed_packages[]` | Tracking locale dei package installati nel progetto |
+| `.github/.scf-manifest.json` (progetto consumer) | `"1.0"` | `entries[]` | Tracking locale dei package installati nel progetto |
 
 I due numeri di versione **non sono confrontabili** e possono evolvere in modo indipendente.
 Un bump di `schema_version` in uno schema non implica un cambio nell'altro.

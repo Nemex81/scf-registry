@@ -12,11 +12,12 @@ pubblici disponibili per installazione e aggiornamento tramite il server MCP
 
 Il server MCP `spark-framework-engine` legge questo file via HTTP GET:
 
-```
+```text
 https://raw.githubusercontent.com/Nemex81/scf-registry/main/registry.json
 ```
 
 Quando un utente esegue `scf_install_package`, il motore:
+
 1. Scarica `registry.json` da questo repo
 2. Trova il pacchetto richiesto e il suo `repo_url`
 3. Scarica i file `.github/` dal repo del pacchetto
@@ -37,21 +38,30 @@ dichiarate nei `package-manifest.json` dei package installati.
   "updated_at": "2026-03-30T12:00:00Z",
   "packages": [
     {
+      "id": "spark-base",
+      "repo_url": "https://github.com/Nemex81/spark-base",
+      "latest_version": "1.2.0",
+      "description": "Layer fondazionale SCF con agenti base, skill condivise, instruction comuni e prompt framework general-purpose.",
+      "min_engine_version": "2.1.0",
+      "status": "stable",
+      "tags": ["base", "foundation", "agents", "skills", "prompts", "general-purpose"]
+    },
+    {
       "id": "scf-master-codecrafter",
       "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
-      "latest_version": "1.0.0",
-      "description": "Layer base prerequisito per tutti i plugin SCF linguaggio-specifici.",
-      "engine_min_version": "1.9.0",
+      "latest_version": "2.1.0",
+      "description": "Plugin CORE-CRAFT sopra spark-base per design, code routing, code UI e contesto MCP.",
+      "min_engine_version": "2.1.0",
       "status": "stable",
-      "tags": ["master", "orchestrator", "dispatcher", "base"]
+      "tags": ["master", "core-craft", "dispatcher", "design", "spark-base"]
     },
     {
       "id": "scf-pycode-crafter",
       "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
-      "latest_version": "2.0.0",
-      "description": "Pacchetto SCF per progetti Python specializzato e dipendente dal layer master",
-      "engine_min_version": "1.9.0",
-      "status": "active",
+      "latest_version": "2.0.1",
+      "description": "Pacchetto SCF per progetti Python specializzato sopra scf-master-codecrafter.",
+      "min_engine_version": "2.1.0",
+      "status": "stable",
       "tags": ["python", "development", "copilot", "agenti"]
     }
   ]
@@ -61,12 +71,12 @@ dichiarate nei `package-manifest.json` dei package installati.
 ### Campi pacchetto
 
 | Campo | Tipo | Obbligatorio | Descrizione |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `id` | string | sì | Identificatore univoco del pacchetto |
 | `repo_url` | string | sì | URL GitHub del repository del pacchetto |
 | `latest_version` | string semver | sì | Versione più recente disponibile |
 | `description` | string | sì | Descrizione breve del dominio |
-| `engine_min_version` | string semver | sì | Versione minima del motore richiesta |
+| `min_engine_version` | string semver | sì | Versione minima del motore richiesta |
 | `status` | string | sì | `active`, `stable` o `deprecated` |
 | `tags` | array string | no | Tag di categoria per ricerca |
 
@@ -75,9 +85,10 @@ dichiarate nei `package-manifest.json` dei package installati.
 ## Pacchetti disponibili
 
 | Pacchetto | Versione | Descrizione | Status |
-|---|---|---|---|
-| [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `1.0.0` | Layer base prerequisito per tutti i plugin SCF linguaggio-specifici | `stable` |
-| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.0.0` | Plugin Python specializzato che richiede il layer master | `active` |
+| --- | --- | --- | --- |
+| [`spark-base`](https://github.com/Nemex81/spark-base) | `1.2.0` | Layer fondazionale SCF con agenti base, skill condivise, instruction e prompt framework | `stable` |
+| [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `2.1.0` | Plugin CORE-CRAFT sopra spark-base per design, code routing, code UI e contesto MCP | `stable` |
+| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.0.1` | Plugin Python specializzato che richiede scf-master-codecrafter | `stable` |
 
 ---
 
@@ -88,7 +99,7 @@ presente nel file `.github/.scf-manifest.json` dei progetti consumer.
 Sono artefatti con strutture e cicli di vita distinti:
 
 | Artefatto | schema_version | Struttura | Scopo |
-|-----------|---------------|-----------|-------|
+| --- | --- | --- | --- |
 | `registry.json` (questo repo) | `"2.0"` | `packages[]` | Catalogo pubblico dei package SCF disponibili |
 | `.github/.scf-manifest.json` (progetto consumer) | `"1.0"` | `entries[]` | Tracking locale dei package installati nel progetto |
 
@@ -104,10 +115,13 @@ Un bump di `schema_version` in uno schema non implica un cambio nell'altro.
 ## Aggiungere un pacchetto
 
 Per aggiungere un pacchetto al registry:
+
 1. Crea un repo package con `package-manifest.json` coerente e struttura `.github/` completa
 2. Apri una PR su questo repo aggiungendo la voce in `packages[]` di `registry.json`
 3. Aggiorna `updated_at` con la data corrente in formato ISO 8601 UTC
 
 ---
 
-*SPARK Code Framework — Livello 1 infrastruttura*
+## Nota
+
+SPARK Code Framework — Livello 1 infrastruttura.

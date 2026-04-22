@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "updated_at": "2026-04-16T00:00:00Z",
+  "updated_at": "2026-04-22T05:35:21Z",
   "packages": [
     {
       "id": "spark-base",
@@ -11,7 +11,14 @@
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/spark-base",
       "min_engine_version": "2.1.0",
-      "tags": ["base", "foundation", "agents", "skills", "prompts", "general-purpose"]
+      "tags": [
+        "base",
+        "foundation",
+        "agents",
+        "skills",
+        "prompts",
+        "general-purpose"
+      ]
     },
     {
       "id": "scf-master-codecrafter",
@@ -22,7 +29,13 @@
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
       "min_engine_version": "2.1.0",
-      "tags": ["master", "core-craft", "dispatcher", "design", "spark-base"]
+      "tags": [
+        "master",
+        "core-craft",
+        "dispatcher",
+        "design",
+        "spark-base"
+      ]
     },
     {
       "id": "scf-pycode-crafter",
@@ -33,7 +46,12 @@
       "description": "Pacchetto SCF per progetti Python — agenti, skill e instruction per Copilot Agent mode",
       "min_engine_version": "2.1.0",
       "status": "stable",
-      "tags": ["python", "development", "copilot", "agenti"]
+      "tags": [
+        "python",
+        "development",
+        "copilot",
+        "agenti"
+      ]
     }
   ]
 }

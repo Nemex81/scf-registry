@@ -35,32 +35,32 @@ dichiarate nei `package-manifest.json` dei package installati.
 ```json
 {
   "schema_version": "2.0",
-  "updated_at": "2026-03-30T12:00:00Z",
+  "updated_at": "2026-04-26T00:00:00Z",
   "packages": [
     {
       "id": "spark-base",
       "repo_url": "https://github.com/Nemex81/spark-base",
-      "latest_version": "1.2.0",
+      "latest_version": "1.5.0",
       "description": "Layer fondazionale SCF con agenti base, skill condivise, instruction comuni e prompt framework general-purpose.",
-      "min_engine_version": "2.1.0",
+      "min_engine_version": "2.4.0",
       "status": "stable",
       "tags": ["base", "foundation", "agents", "skills", "prompts", "general-purpose"]
     },
     {
       "id": "scf-master-codecrafter",
       "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
-      "latest_version": "2.1.0",
+      "latest_version": "2.3.0",
       "description": "Plugin CORE-CRAFT sopra spark-base per design, code routing, code UI e contesto MCP.",
-      "min_engine_version": "2.1.0",
+      "min_engine_version": "2.4.0",
       "status": "stable",
       "tags": ["master", "core-craft", "dispatcher", "design", "spark-base"]
     },
     {
       "id": "scf-pycode-crafter",
       "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
-      "latest_version": "2.0.1",
+      "latest_version": "2.1.0",
       "description": "Pacchetto SCF per progetti Python specializzato sopra scf-master-codecrafter.",
-      "min_engine_version": "2.1.0",
+      "min_engine_version": "2.4.0",
       "status": "stable",
       "tags": ["python", "development", "copilot", "agenti"]
     }
@@ -86,9 +86,9 @@ dichiarate nei `package-manifest.json` dei package installati.
 
 | Pacchetto | Versione | Descrizione | Status |
 | --- | --- | --- | --- |
-| [`spark-base`](https://github.com/Nemex81/spark-base) | `1.2.0` | Layer fondazionale SCF con agenti base, skill condivise, instruction e prompt framework | `stable` |
-| [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `2.1.0` | Plugin CORE-CRAFT sopra spark-base per design, code routing, code UI e contesto MCP | `stable` |
-| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.0.1` | Plugin Python specializzato che richiede scf-master-codecrafter | `stable` |
+| [`spark-base`](https://github.com/Nemex81/spark-base) | `1.5.0` | Layer fondazionale SCF con agenti base, skill condivise, instruction e prompt framework | `stable` |
+| [`scf-master-codecrafter`](https://github.com/Nemex81/scf-master-codecrafter) | `2.3.0` | Plugin CORE-CRAFT sopra spark-base per design, code routing, code UI e contesto MCP | `stable` |
+| [`scf-pycode-crafter`](https://github.com/Nemex81/scf-pycode-crafter) | `2.1.0` | Plugin Python specializzato che richiede scf-master-codecrafter | `stable` |
 
 ---
 

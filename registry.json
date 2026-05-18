@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "updated_at": "2026-05-11T19:30:00Z",
+  "updated_at": "2026-05-18T12:00:00Z",
   "packages": [
     {
       "id": "spark-base",
@@ -10,7 +10,7 @@
       "version_source": "package-manifest",
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/spark-base",
-      "min_engine_version": "3.4.0",
+      "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
       "tags": ["base", "foundation", "agents", "skills", "prompts", "general-purpose"]
     },
@@ -22,7 +22,7 @@
       "version_source": "package-manifest",
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
-      "min_engine_version": "3.4.0",
+      "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
       "tags": ["master", "core-craft", "dispatcher", "design", "spark-base"]
     },
@@ -34,7 +34,7 @@
       "version_source": "package-manifest",
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
-      "min_engine_version": "3.4.0",
+      "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
       "tags": ["python", "development", "copilot", "agenti"]
     },

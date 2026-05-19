@@ -1,18 +1,25 @@
 {
   "schema_version": "2.0",
-  "updated_at": "2026-05-18T12:00:00Z",
+  "updated_at": "2026-05-19T02:43:22Z",
   "packages": [
     {
       "id": "spark-base",
       "display_name": "SPARK Base Layer",
       "description": "Layer fondazionale SCF con agenti base, skill condivise, instruction comuni e prompt framework general-purpose.",
-      "latest_version": "2.1.0",
+      "latest_version": "2.3.0",
       "version_source": "package-manifest",
       "status": "stable",
       "repo_url": "https://github.com/Nemex81/spark-base",
       "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
-      "tags": ["base", "foundation", "agents", "skills", "prompts", "general-purpose"]
+      "tags": [
+        "base",
+        "foundation",
+        "agents",
+        "skills",
+        "prompts",
+        "general-purpose"
+      ]
     },
     {
       "id": "scf-master-codecrafter",
@@ -24,7 +31,13 @@
       "repo_url": "https://github.com/Nemex81/scf-master-codecrafter",
       "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
-      "tags": ["master", "core-craft", "dispatcher", "design", "spark-base"]
+      "tags": [
+        "master",
+        "core-craft",
+        "dispatcher",
+        "design",
+        "spark-base"
+      ]
     },
     {
       "id": "scf-pycode-crafter",
@@ -36,7 +49,12 @@
       "repo_url": "https://github.com/Nemex81/scf-pycode-crafter",
       "min_engine_version": "3.6.0",
       "engine_managed_resources": false,
-      "tags": ["python", "development", "copilot", "agenti"]
+      "tags": [
+        "python",
+        "development",
+        "copilot",
+        "agenti"
+      ]
     },
     {
       "id": "spark-ops",
@@ -48,7 +66,13 @@
       "repo_url": "https://github.com/Nemex81/spark-ops",
       "min_engine_version": "3.4.0",
       "engine_managed_resources": true,
-      "tags": ["ops", "e2e", "release", "docs", "spark-base"]
+      "tags": [
+        "ops",
+        "e2e",
+        "release",
+        "docs",
+        "spark-base"
+      ]
     }
   ]
 }
